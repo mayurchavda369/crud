@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Employee Form</title>
+  <style>
+    form {
+      margin: auto;
+      width: min(600px, 80%);
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-image:
+        url("https://ii1.pepperfry.com/media/catalog/product/d/r/800x880/dream-mid-back-mesh-chair-in-white-sky-blue-colour-by-azazo-dream-mid-back-mesh-chair-in-white-sky-b-qa3l3k.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select,
+    #dob {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      opacity: 0.5;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .checkboxes {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: flex-start;
+      margin-right: 20px;
+    }
+
+    .checkboxes label {
+      margin-right: 20px;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .buttons button {
+      background-color: #854d28;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      width: 150px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .buttons button:hover {
+      background-color: #6e4225;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="{% url 'adddata' %}" method="post">
+    {% csrf_token %}
+    <h1>Employee Registration Form</h1>
+    {{msg}}
+    <label for="first-name">First Name:</label>
+    <input type="text" id="first-name" name="firstname" required>
+
+    <label for="last-name">Last Name:</label>
+    <input type="text" id="last-name" name="lastname" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="mobile">Mobile:</label>
+    <input type="tel" id="mobile" name="mobile" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required></textarea>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+
+    <div class="buttons">
+      <button type="submit">Submit</button>
+    </div>
+    <br>
+    <div class="buttons">
+      <a href="{% url 'showdata' %}"><button type="button">SHOWDATA</button></a> 
+      
+    </div>
+  </form>
+</body>
+
+</html>
